@@ -1,4 +1,4 @@
-name := """Estacionamento by Alan e Juan"""
+name := """play-java-starter-example"""
 
 version := "1.0-SNAPSHOT"
 

@@ -14,13 +14,16 @@ create table estacionamento (
   id                            bigint auto_increment not null,
   nome                          varchar(255),
   cep                           varchar(255),
+  vaga                          integer not null,
   constraint pk_estacionamento primary key (id)
 );
 
 create table produto (
   id                            bigint auto_increment not null,
-  placa                         varchar(255),
-  modelo                        varchar(255),
+  nome                          varchar(255),
+  descricao                     varchar(255),
+  unidade                       varchar(255),
+  preco                         double,
   constraint pk_produto primary key (id)
 );
 

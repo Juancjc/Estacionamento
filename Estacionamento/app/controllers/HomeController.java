@@ -79,7 +79,8 @@ public class HomeController extends Controller {
 
     public Result cadastroDeNovoEstacionamento(){
         //pega as informações que vem do formulário
-        Form<Estacionamento> formEstacionamento = formFactory.form(Estacionamento.class).bindFromRequest();
+        Form<Estacionamento> formEstacionamento = formFactory.form(Estacionamento.class)
+        .bindFromRequest();
 
         //valida se tem aglum erro
         if(formEstacionamento.hasErrors()){

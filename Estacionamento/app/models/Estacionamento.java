@@ -13,6 +13,7 @@ public class Estacionamento extends Model{
     @Required(message = "O nome do estacionamento é obrigatório")
     public String nome;
     public String cep;
+    public int vaga;
 
     public static Finder<Long,Estacionamento> find = new Finder<>(Estacionamento.class);
 }
