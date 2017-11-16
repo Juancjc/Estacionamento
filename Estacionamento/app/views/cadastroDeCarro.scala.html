@@ -1,0 +1,22 @@
+@(message: String)(formCarro: Form[Carro])
+
+@import helper._
+@import b4.vertical.fieldConstructor
+
+@main("Cadastro de Carro") {
+
+    @*nosso content*@
+    <h1 class="display-4">@message de Carro</h1>
+    @b4.form(CSRF(routes.HomeController.cadastroDeNovoCarro)){
+        @b4.hidden(formCarro("id"))
+        @b4.text(formCarro("placa"), '_label -> "Placa")
+        @b4.text(formCarro("modelo"), '_label -> "Modelo")
+
+        <div class="form-inline">
+            @b4.submit('class -> "btn btn-primary"){Salvar}
+            <a href="/carro/list" 
+            class="btn btn-default">Cancelar</a>
+        </div>
+    }
+        
+}
