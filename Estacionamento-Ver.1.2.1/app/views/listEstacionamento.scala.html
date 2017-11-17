@@ -1,0 +1,34 @@
+@(estacionamento : List[Estacionamento])
+
+@main("Listagem"){
+
+    <h1 class="display-3">Lista de estacionamento</h1>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>CEP</th>
+            <th>Vagas</th>
+          </tr>
+        </thead>
+        <tbody>
+        @for(e <- estacionamento){
+            <tr>
+                <th scope="row">@e.id</th>
+                <td>@e.nome</td>
+                <td>@e.cep</td>
+                <td>@e.vaga</td>
+                <td>
+                    <a href="/estacionamento/edit/@e.id" 
+                        class="btn btn-primary">Editar</a>
+                </td>
+              </tr>
+        }
+    </tbody>
+    </table>
+    <a href="/estacionamento" 
+    class="btn btn-primary">Novo Estacionamento</a>
+
+
+}

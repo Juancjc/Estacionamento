@@ -1,0 +1,36 @@
+@(carro : List[Carro])
+
+@main("Listagem"){
+
+    <h1 class="display-3">Lista de Carros</h1>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Placa</th>
+            <th>Modelo</th>
+            <th>Vaga que esta usando</th>
+            <th>Entrada</th>
+          </tr>
+        </thead>
+        <tbody>
+        @for(c <- carro){
+            <tr>
+                <th scope="row">@c.id</th>
+                <td>@c.placa</td>
+                <td>@c.modelo</td>
+                <td>@c.ocupada</td>
+                <td>@c.hora : @c.minuto </td>
+                <td>
+                    <a href="/carro/edit/@c.id" 
+                        class="btn btn-primary">Editar</a>
+                </td>
+              </tr>
+        }
+    </tbody>
+    </table>
+    <a href="/carro" 
+    class="btn btn-primary">Novo Carro</a>
+
+
+}
