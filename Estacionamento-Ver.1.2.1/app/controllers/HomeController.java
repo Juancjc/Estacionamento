@@ -88,9 +88,13 @@ public class HomeController extends Controller {
             return badRequest(cadastroDeEstacionamento.render("Cadastro", formEstacionamento));
         }
 
-        //atribui os dados ao objeto produto
-        estacionamento = formEstacionamento.get() ;
-        //salva o produto
+        
+        estacionamento = formEstacionamento.get();
+        //atribui os dados ao objeto carro
+        // carro = formCarro.get();
+        //carro.ocupa = estacionamento.vaga;
+        //salva o tudo
+
         if(estacionamento.id != null)
             estacionamento.update();
         else
