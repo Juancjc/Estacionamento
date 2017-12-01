@@ -1,0 +1,59 @@
+@(message: String)(formCarro: Form[Carro])
+
+ 
+
+@import helper._
+@import b4.vertical.fieldConstructor
+@import java.util.Date;
+@main("Cadastro de Carro") {
+
+    @*nosso content*@
+    <h1 class="display-4">@message de Carro</h1>
+    
+    @b4.form(CSRF(routes.HomeController.cadastroDeNovoCarro)){
+        @b4.hidden(formCarro("id"))
+        @b4.text(formCarro("placa"),    'class -> "col-8", '_label -> "Placa")
+        @b4.text(formCarro("modelo"),   'class -> "col-8", '_label -> "Modelo")
+       <!--// @b4.text(formCarro("ocupada"),   'class -> "col-8", '_label -> "Vaga Ocupada") -->
+     
+
+        <p>Vagas livres
+            <select name="ocupada">
+               <option value="1"> vaga 1 </option>
+               <option value="2"> vaga 2 </option>
+               <option value="3"> vaga 3 </option>
+               <option value="4"> vaga 4 </option>
+               <option value="5"> vaga 5 </option>
+               <option value="6"> vaga 6 </option>
+               <option value="7"> vaga 7 </option>
+               <option value="8"> vaga 8 </option>
+               <option value="9"> vaga 9 </option>
+               <option value="10"> vaga 10 </option>
+               <option value="11"> vaga 11 </option>
+               <option value="12"> vaga 12 </option>
+            </select>
+         </p> 
+        
+     
+        <div class="row">
+            <div class="col-2">Horario de Entrada</div>
+            <div class="col-2">@b4.number(formCarro("hora"),'class -> "col-8", '_label -> "Hora")</div>
+            <div class="col-2">@b4.number(formCarro("minuto"),'class -> "col-4", '_label -> "Minuto")</div>
+        </div>
+        <p> Horario de saida </p>
+        <div class="row">
+            <div class="col-2">Horario de Saida</div>
+            <div class="col-2">@b4.number(formCarro("saidaHora"),'class -> "col-8", '_label -> "Hora")</div>
+            <div class="col-2">@b4.number(formCarro("saidaMinuto"),'class -> "col-4", '_label -> "Minuto")</div>
+        </div>
+        
+
+
+        <div class="form-inline">
+            @b4.submit('class -> "btn btn-primary"){Salvar}
+            <a href="/carro/list" 
+            class="btn btn-default">Cancelar</a>
+        </div>
+    }
+        
+}

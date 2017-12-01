@@ -1,0 +1,36 @@
+@(vaga : List[Vaga])
+
+@main("Listagem"){
+
+    <h1 class="display-3">Lista de Vagas</h1>
+    <table class="table table-hover">
+        <thead>
+          <tr> 
+            <th>#</th>
+            <th>Numero</th>
+            <th>Ocupado</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+        @for(v <- vaga){
+            <tr>
+                <th scope="row">@v.id</th>
+                <td>@v.nome</td>
+                @if(v.ocupada == 0){
+                     <td> Livre </td>
+                }else{
+                      <td> Ocupada </td>
+                }
+                <td>  <a href="/vaga/edit/@v.id" 
+                        class="btn btn-primary">Editar</a>
+                </td>
+              </tr>
+        }
+    </tbody>
+    </table>
+    <a href="/vaga" 
+    class="btn btn-primary">Nova vaga</a>
+
+
+}
