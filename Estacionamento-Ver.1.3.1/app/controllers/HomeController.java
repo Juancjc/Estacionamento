@@ -30,29 +30,33 @@ public class HomeController extends Controller {
     }
 
     public Result cadastroDeCarro(){
-        Form<Carro> formularioDeCarro = formFactory
-        .form(Carro.class);
-        //Form<Vaga> formularioDeVaga = formFactory
+
+        Form<Carro> formularioDeCarro = formFactory.form(Carro.class);
+
+        return ok(cadastroDeCarro.render("Cadastro",formularioDeCarro));
+
+        //Form<Vaga> formVaga = formFactory
         //.form(Vaga.class);
-
-
-        return ok(cadastroDeCarro.render("Cadatro",formularioDeCarro));
+        //Form<Vaga> form = vaga.find.all();
     }
 
     public Result cadastroDeNovoCarro(){
         //pega as informações que vem do formulário
         Form<Carro> formCarro= formFactory.form(Carro.class).bindFromRequest();
 
-        //List<Vaga> list = vaga.find.all();
-       
-
         //hora
         //minuto
         //valida se tem aglum erro
+
         if(formCarro.hasErrors()){
             flash("danger", "Tem erros no formulario");
-            return badRequest(cadastroDeCarro.render("Cadastro", formCarro));
-        }
+
+            //List<Vaga> vaga = Vaga.find.findList();
+
+            return badRequest(cadastroDeCarro.render("Cadastro",formCarro));//,vaga
+
+            }
+        
 
 
         carro = formCarro.get() ;
@@ -62,7 +66,8 @@ public class HomeController extends Controller {
         
         carro.tempo=saida-entrada;
 
-        int valor; // valor do estacionamento sera 3 
+        int valor; // valor do estacionamento sera 3 reais
+
         if(carro.tempo <= 15)
             valor =0;
         else{
@@ -88,7 +93,7 @@ public class HomeController extends Controller {
         //redireciona para a tela de cadastro novamente
         return redirect(routes.HomeController.listaCarro());
 
-       // return ok(listVaga.render(list));
+       
     }
 
     public Result editarCarro(Long id){
@@ -211,5 +216,11 @@ public Result editarVaga(Long id){
     return ok(vagaLivre
     .render("Editar",formVaga));
 
+  }
+
+
+
+
+  
 }
-}
+
