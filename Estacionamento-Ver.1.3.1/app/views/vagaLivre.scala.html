@@ -1,0 +1,27 @@
+@(message: String)(formVaga: Form[Vaga])
+
+@import helper._
+@import b4.vertical.fieldConstructor
+
+@main("Vaga") {
+
+    @*nosso content*@
+    <h1 class="display-4">@message</h1>
+    @b4.form(CSRF(routes.HomeController.vagaLivreNovo)){
+        @b4.hidden(formVaga("id"))
+        @b4.number(formVaga("nome"), '_label -> "Número da vaga")
+        <p>A vaga está: 
+                <select name="ocupada">
+                   <option value="0"> Livre </option>
+                   <option value="1"> Ocupada</option>
+                </select>
+        </p>
+
+        <div class="form-inline">
+            @b4.submit('class -> "btn btn-primary"){Salvar}
+            <a href="/vaga/list" 
+            class="btn btn-default">Cancelar</a>
+        </div>
+    }
+        
+}

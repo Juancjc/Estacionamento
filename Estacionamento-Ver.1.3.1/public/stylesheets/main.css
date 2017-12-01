@@ -1,0 +1,19 @@
+/*reset*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .main {
+    background-color: rgba(233, 229, 229, 0.973);
+  }
+
+.principal {
+  height: 100%;
+  min-height: 500px;
+}
+
+footer {
+  height: 100px;
+}
