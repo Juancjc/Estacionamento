@@ -1,9 +1,12 @@
+# Sistema da faculdade
+tanto tempo que deve estar totalmente defazado
+
 # Estacionamento
 
 é um trabalho dedicado para criar sistema de cadastro de estacionamentos e carros, e também para mostrar vagas. Usando Play.
 
 # IMPORTANTE 
-   mudar a pasta para "Estacionamento" se não não roda essa caralha.
+   mudar a pasta para "Estacionamento" .
    
    até o presente momento, 01/12/2017, não consgigo colocar duas Form dentro da view, ou seja, variaveis da classe vaga dentro da view cadastroDeCarro.
    
